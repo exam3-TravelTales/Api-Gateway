@@ -25,7 +25,7 @@ func Router(hand *handler.Handler) *gin.Engine {
 	stories := router.Group("/api/v1/stories")
 	stories.Use(middleware.Check)
 	{
-		stories.POST("/:story_id")
+		stories.POST("/:story_id", hand.CreateStory)
 		stories.PUT("/:story_id")
 		stories.DELETE("/:story_id")
 		stories.GET("")

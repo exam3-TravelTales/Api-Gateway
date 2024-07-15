@@ -1,14 +1,9 @@
 package middleware
 
 import (
-	"net/http"
-
+	"api/api/auth"
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt"
-)
-
-const (
-	signingkey = "visca barsa"
+	"net/http"
 )
 
 func Check(c *gin.Context) {
@@ -21,18 +16,7 @@ func Check(c *gin.Context) {
 		return
 	}
 
-	token, err := jwt.Parse(accessToken, func(t *jwt.Token) (interface{}, error) {
-		return []byte(signingkey), nil
-	})
-
-	if err != nil {
-		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
-			"error": "Token could not be parsed",
-		})
-		return
-	}
-
-	err = token.Claims.Valid()
+	_, err := auth.ValidateAccessToken(accessToken)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{
 			"error": "Invalid token provided",
