@@ -1,7 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"api/api/handler"
+	"api/config"
+	"fmt"
+)
 
 func main() {
-	fmt.Println("hello world")
+	cfg := config.Load()
+	fmt.Println(cfg)
+	// hand := NewHandler()
+
+}
+
+func NewHandler() *handler.Handler {
+	return &handler.Handler{}
 }
