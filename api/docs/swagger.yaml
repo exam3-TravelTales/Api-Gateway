@@ -1,9 +1,4 @@
 definitions:
-  content.Activities:
-    properties:
-      text:
-        type: string
-    type: object
   content.Answer:
     properties:
       topdestinations:
@@ -18,95 +13,6 @@ definitions:
       user_id:
         type: string
       username:
-        type: string
-    type: object
-  content.CommentItinerariesReq:
-    properties:
-      author_id:
-        type: string
-      content:
-        type: string
-      itinerary_id:
-        type: string
-    type: object
-  content.CommentItinerariesRes:
-    properties:
-      author_id:
-        type: string
-      content:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: string
-      itinerary_id:
-        type: string
-    type: object
-  content.CommentStoryReq:
-    properties:
-      author_id:
-        type: string
-      content:
-        type: string
-      story_id:
-        type: string
-    type: object
-  content.CommentStoryRes:
-    properties:
-      author_id:
-        type: string
-      content:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: string
-      story_id:
-        type: string
-    type: object
-  content.Comments:
-    properties:
-      author:
-        $ref: '#/definitions/content.Author'
-      content:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: string
-    type: object
-  content.CreateStoriesRequest:
-    properties:
-      content:
-        type: string
-      location:
-        type: string
-      tags:
-        items:
-          type: string
-        type: array
-      title:
-        type: string
-      user_id:
-        type: string
-    type: object
-  content.CreateStoriesResponse:
-    properties:
-      author_id:
-        type: string
-      content:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: string
-      location:
-        type: string
-      tags:
-        items:
-          type: string
-        type: array
-      title:
         type: string
     type: object
   content.CreateTipsReq:
@@ -133,19 +39,6 @@ definitions:
       title:
         type: string
     type: object
-  content.Destination:
-    properties:
-      activities:
-        items:
-          $ref: '#/definitions/content.Activities'
-        type: array
-      end_date:
-        type: string
-      name:
-        type: string
-      start_date:
-        type: string
-    type: object
   content.Destinations:
     properties:
       country:
@@ -158,32 +51,6 @@ definitions:
         type: string
       name:
         type: string
-    type: object
-  content.GetAllStoriesRes:
-    properties:
-      limit:
-        type: integer
-      offset:
-        type: integer
-      stories:
-        items:
-          $ref: '#/definitions/content.Stories'
-        type: array
-      total:
-        type: integer
-    type: object
-  content.GetCommentsOfStoryRes:
-    properties:
-      comments:
-        items:
-          $ref: '#/definitions/content.Comments'
-        type: array
-      limit:
-        type: integer
-      offset:
-        type: integer
-      total:
-        type: integer
     type: object
   content.GetDestinationsByIdRes:
     properties:
@@ -217,38 +84,6 @@ definitions:
       total:
         type: integer
     type: object
-  content.GetItinerariesByIdRes:
-    properties:
-      author:
-        $ref: '#/definitions/content.Author'
-      description:
-        type: string
-      destination:
-        items:
-          $ref: '#/definitions/content.Destination'
-        type: array
-      end_date:
-        type: string
-      id:
-        type: string
-      start_date:
-        type: string
-      title:
-        type: string
-    type: object
-  content.GetItinerariesRes:
-    properties:
-      itineraries:
-        items:
-          $ref: '#/definitions/content.ItinerariesRes'
-        type: array
-      limit:
-        type: integer
-      offset:
-        type: integer
-      total:
-        type: integer
-    type: object
   content.GetMessagesRes:
     properties:
       limit:
@@ -261,31 +96,6 @@ definitions:
         type: integer
       total:
         type: integer
-    type: object
-  content.GetStoryRes:
-    properties:
-      author:
-        $ref: '#/definitions/content.Author'
-      comments_count:
-        type: integer
-      content:
-        type: string
-      created_at:
-        type: string
-      id:
-        type: string
-      likes_count:
-        type: integer
-      location:
-        type: string
-      tags:
-        items:
-          type: string
-        type: array
-      title:
-        type: string
-      updated_at:
-        type: string
     type: object
   content.GetTipsRes:
     properties:
@@ -315,49 +125,6 @@ definitions:
       total_likes_received:
         type: string
       total_stories:
-        type: string
-      user_id:
-        type: string
-    type: object
-  content.ItinerariesReq:
-    properties:
-      description:
-        type: string
-      destinations:
-        items:
-          $ref: '#/definitions/content.Destination'
-        type: array
-      end_date:
-        type: string
-      start_date:
-        type: string
-      title:
-        type: string
-      user_id:
-        type: string
-    type: object
-  content.ItinerariesRes:
-    properties:
-      created_at:
-        type: string
-      description:
-        type: string
-      end_date:
-        type: string
-      id:
-        type: string
-      start_date:
-        type: string
-      title:
-        type: string
-      user_id:
-        type: string
-    type: object
-  content.LikeRes:
-    properties:
-      liked_at:
-        type: string
-      story_id:
         type: string
       user_id:
         type: string
@@ -411,21 +178,6 @@ definitions:
       user_id:
         type: string
     type: object
-  content.Stories:
-    properties:
-      author:
-        $ref: '#/definitions/content.Author'
-      comments_count:
-        type: integer
-      likes_count:
-        type: integer
-      location:
-        type: string
-      story_id:
-        type: string
-      title:
-        type: string
-    type: object
   content.Tips:
     properties:
       author:
@@ -448,7 +200,122 @@ definitions:
       popularity_score:
         type: integer
     type: object
-  content.UpdateItinerariesReq:
+  itineraries.Activities:
+    properties:
+      text:
+        type: string
+    type: object
+  itineraries.Author:
+    properties:
+      full_name:
+        type: string
+      user_id:
+        type: string
+      username:
+        type: string
+    type: object
+  itineraries.CommentItinerariesReq:
+    properties:
+      author_id:
+        type: string
+      content:
+        type: string
+      itinerary_id:
+        type: string
+    type: object
+  itineraries.CommentItinerariesRes:
+    properties:
+      author_id:
+        type: string
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      itinerary_id:
+        type: string
+    type: object
+  itineraries.Destination:
+    properties:
+      activities:
+        items:
+          $ref: '#/definitions/itineraries.Activities'
+        type: array
+      end_date:
+        type: string
+      name:
+        type: string
+      start_date:
+        type: string
+    type: object
+  itineraries.GetItinerariesByIdRes:
+    properties:
+      author:
+        $ref: '#/definitions/itineraries.Author'
+      description:
+        type: string
+      destination:
+        items:
+          $ref: '#/definitions/itineraries.Destination'
+        type: array
+      end_date:
+        type: string
+      id:
+        type: string
+      start_date:
+        type: string
+      title:
+        type: string
+    type: object
+  itineraries.GetItinerariesRes:
+    properties:
+      itineraries:
+        items:
+          $ref: '#/definitions/itineraries.ItinerariesRes'
+        type: array
+      limit:
+        type: integer
+      offset:
+        type: integer
+      total:
+        type: integer
+    type: object
+  itineraries.ItinerariesReq:
+    properties:
+      description:
+        type: string
+      destinations:
+        items:
+          $ref: '#/definitions/itineraries.Destination'
+        type: array
+      end_date:
+        type: string
+      start_date:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  itineraries.ItinerariesRes:
+    properties:
+      created_at:
+        type: string
+      description:
+        type: string
+      end_date:
+        type: string
+      id:
+        type: string
+      start_date:
+        type: string
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  itineraries.UpdateItinerariesReq:
     properties:
       description:
         type: string
@@ -457,7 +324,158 @@ definitions:
       title:
         type: string
     type: object
-  content.UpdateStoriesReq:
+  story.Author:
+    properties:
+      full_name:
+        type: string
+      user_id:
+        type: string
+      username:
+        type: string
+    type: object
+  story.CommentStoryReq:
+    properties:
+      author_id:
+        type: string
+      content:
+        type: string
+      story_id:
+        type: string
+    type: object
+  story.CommentStoryRes:
+    properties:
+      author_id:
+        type: string
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      story_id:
+        type: string
+    type: object
+  story.Comments:
+    properties:
+      author:
+        $ref: '#/definitions/story.Author'
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+    type: object
+  story.CreateStoriesRequest:
+    properties:
+      content:
+        type: string
+      location:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+      title:
+        type: string
+      user_id:
+        type: string
+    type: object
+  story.CreateStoriesResponse:
+    properties:
+      author_id:
+        type: string
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      location:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+      title:
+        type: string
+    type: object
+  story.GetAllStoriesRes:
+    properties:
+      limit:
+        type: integer
+      offset:
+        type: integer
+      stories:
+        items:
+          $ref: '#/definitions/story.Stories'
+        type: array
+      total:
+        type: integer
+    type: object
+  story.GetCommentsOfStoryRes:
+    properties:
+      comments:
+        items:
+          $ref: '#/definitions/story.Comments'
+        type: array
+      limit:
+        type: integer
+      offset:
+        type: integer
+      total:
+        type: integer
+    type: object
+  story.GetStoryRes:
+    properties:
+      author:
+        $ref: '#/definitions/story.Author'
+      comments_count:
+        type: integer
+      content:
+        type: string
+      created_at:
+        type: string
+      id:
+        type: string
+      likes_count:
+        type: integer
+      location:
+        type: string
+      tags:
+        items:
+          type: string
+        type: array
+      title:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  story.LikeRes:
+    properties:
+      liked_at:
+        type: string
+      story_id:
+        type: string
+      user_id:
+        type: string
+    type: object
+  story.Stories:
+    properties:
+      author:
+        $ref: '#/definitions/story.Author'
+      comments_count:
+        type: integer
+      likes_count:
+        type: integer
+      location:
+        type: string
+      story_id:
+        type: string
+      title:
+        type: string
+    type: object
+  story.UpdateStoriesReq:
     properties:
       content:
         type: string
@@ -466,7 +484,7 @@ definitions:
       title:
         type: string
     type: object
-  content.UpdateStoriesRes:
+  story.UpdateStoriesRes:
     properties:
       author_id:
         type: string
@@ -565,7 +583,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.GetItinerariesRes'
+            $ref: '#/definitions/itineraries.GetItinerariesRes'
         "400":
           description: Invalid data
           schema:
@@ -587,12 +605,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.ItinerariesReq'
+          $ref: '#/definitions/itineraries.ItinerariesReq'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.ItinerariesRes'
+            $ref: '#/definitions/itineraries.ItinerariesRes'
         "400":
           description: Invalid data
           schema:
@@ -645,7 +663,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.GetItinerariesByIdRes'
+            $ref: '#/definitions/itineraries.GetItinerariesByIdRes'
         "400":
           description: Invalid data
           schema:
@@ -672,12 +690,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.UpdateItinerariesReq'
+          $ref: '#/definitions/itineraries.UpdateItinerariesReq'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.ItinerariesRes'
+            $ref: '#/definitions/itineraries.ItinerariesRes'
         "400":
           description: Invalid data
           schema:
@@ -705,12 +723,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.CommentItinerariesReq'
+          $ref: '#/definitions/itineraries.CommentItinerariesReq'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.CommentItinerariesRes'
+            $ref: '#/definitions/itineraries.CommentItinerariesRes'
         "400":
           description: Invalid data
           schema:
@@ -797,7 +815,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.GetAllStoriesRes'
+            $ref: '#/definitions/story.GetAllStoriesRes'
         "400":
           description: Invalid data
           schema:
@@ -819,12 +837,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.CreateStoriesRequest'
+          $ref: '#/definitions/story.CreateStoriesRequest'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.CreateStoriesResponse'
+            $ref: '#/definitions/story.CreateStoriesResponse'
         "400":
           description: Invalid data
           schema:
@@ -877,7 +895,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.GetStoryRes'
+            $ref: '#/definitions/story.GetStoryRes'
         "400":
           description: Invalid data
           schema:
@@ -904,12 +922,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.UpdateStoriesReq'
+          $ref: '#/definitions/story.UpdateStoriesReq'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.UpdateStoriesRes'
+            $ref: '#/definitions/story.UpdateStoriesRes'
         "400":
           description: Invalid data
           schema:
@@ -944,7 +962,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.GetCommentsOfStoryRes'
+            $ref: '#/definitions/story.GetCommentsOfStoryRes'
         "400":
           description: Invalid data
           schema:
@@ -971,12 +989,12 @@ paths:
         name: info
         required: true
         schema:
-          $ref: '#/definitions/content.CommentStoryReq'
+          $ref: '#/definitions/story.CommentStoryReq'
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.CommentStoryRes'
+            $ref: '#/definitions/story.CommentStoryRes'
         "400":
           description: Invalid data
           schema:
@@ -1003,7 +1021,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/content.LikeRes'
+            $ref: '#/definitions/story.LikeRes'
         "400":
           description: Invalid data
           schema:

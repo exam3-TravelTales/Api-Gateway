@@ -4,6 +4,8 @@ import (
 	"api/api"
 	"api/api/handler"
 	"api/genproto/content"
+	"api/genproto/itineraries"
+	"api/genproto/story"
 	"api/pkg/logger"
 	"log"
 
@@ -12,7 +14,6 @@ import (
 )
 
 func main() {
-
 	hand := NewHandler()
 	router := api.Router(hand)
 	log.Printf("server is running...")
@@ -25,5 +26,12 @@ func NewHandler() *handler.Handler {
 		panic(err)
 	}
 	contenservice := content.NewContentClient(conn)
-	return &handler.Handler{Content: contenservice, Log: logger.NewLogger()}
+	itinerariesservice := itineraries.NewItinerariesClient(conn)
+	storyservice := story.NewStoryClient(conn)
+	return &handler.Handler{
+		Content:   contenservice,
+		Story:     storyservice,
+		Itinerary: itinerariesservice,
+		Log:       logger.NewLogger(),
+	}
 }

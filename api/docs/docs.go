@@ -142,7 +142,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.GetItinerariesRes"
+                            "$ref": "#/definitions/itineraries.GetItinerariesRes"
                         }
                     },
                     "400": {
@@ -177,7 +177,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.ItinerariesReq"
+                            "$ref": "#/definitions/itineraries.ItinerariesReq"
                         }
                     }
                 ],
@@ -185,7 +185,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.ItinerariesRes"
+                            "$ref": "#/definitions/itineraries.ItinerariesRes"
                         }
                     },
                     "400": {
@@ -228,7 +228,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.GetItinerariesByIdRes"
+                            "$ref": "#/definitions/itineraries.GetItinerariesByIdRes"
                         }
                     },
                     "400": {
@@ -270,7 +270,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.UpdateItinerariesReq"
+                            "$ref": "#/definitions/itineraries.UpdateItinerariesReq"
                         }
                     }
                 ],
@@ -278,7 +278,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.ItinerariesRes"
+                            "$ref": "#/definitions/itineraries.ItinerariesRes"
                         }
                     },
                     "400": {
@@ -363,7 +363,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.CommentItinerariesReq"
+                            "$ref": "#/definitions/itineraries.CommentItinerariesReq"
                         }
                     }
                 ],
@@ -371,7 +371,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.CommentItinerariesRes"
+                            "$ref": "#/definitions/itineraries.CommentItinerariesRes"
                         }
                     },
                     "400": {
@@ -510,7 +510,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.GetAllStoriesRes"
+                            "$ref": "#/definitions/story.GetAllStoriesRes"
                         }
                     },
                     "400": {
@@ -545,7 +545,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.CreateStoriesRequest"
+                            "$ref": "#/definitions/story.CreateStoriesRequest"
                         }
                     }
                 ],
@@ -553,7 +553,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.CreateStoriesResponse"
+                            "$ref": "#/definitions/story.CreateStoriesResponse"
                         }
                     },
                     "400": {
@@ -596,7 +596,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.GetStoryRes"
+                            "$ref": "#/definitions/story.GetStoryRes"
                         }
                     },
                     "400": {
@@ -638,7 +638,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.UpdateStoriesReq"
+                            "$ref": "#/definitions/story.UpdateStoriesReq"
                         }
                     }
                 ],
@@ -646,7 +646,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.UpdateStoriesRes"
+                            "$ref": "#/definitions/story.UpdateStoriesRes"
                         }
                     },
                     "400": {
@@ -742,7 +742,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.GetCommentsOfStoryRes"
+                            "$ref": "#/definitions/story.GetCommentsOfStoryRes"
                         }
                     },
                     "400": {
@@ -784,7 +784,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/content.CommentStoryReq"
+                            "$ref": "#/definitions/story.CommentStoryReq"
                         }
                     }
                 ],
@@ -792,7 +792,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.CommentStoryRes"
+                            "$ref": "#/definitions/story.CommentStoryRes"
                         }
                     },
                     "400": {
@@ -835,7 +835,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/content.LikeRes"
+                            "$ref": "#/definitions/story.LikeRes"
                         }
                     },
                     "400": {
@@ -1023,14 +1023,6 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "content.Activities": {
-            "type": "object",
-            "properties": {
-                "text": {
-                    "type": "string"
-                }
-            }
-        },
         "content.Answer": {
             "type": "object",
             "properties": {
@@ -1052,143 +1044,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "username": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CommentItinerariesReq": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "itinerary_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CommentItinerariesRes": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "itinerary_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CommentStoryReq": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "story_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CommentStoryRes": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "story_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.Comments": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/content.Author"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CreateStoriesRequest": {
-            "type": "object",
-            "properties": {
-                "content": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "title": {
-                    "type": "string"
-                },
-                "user_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.CreateStoriesResponse": {
-            "type": "object",
-            "properties": {
-                "author_id": {
-                    "type": "string"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "title": {
                     "type": "string"
                 }
             }
@@ -1230,26 +1085,6 @@ const docTemplate = `{
                 }
             }
         },
-        "content.Destination": {
-            "type": "object",
-            "properties": {
-                "activities": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.Activities"
-                    }
-                },
-                "end_date": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "start_date": {
-                    "type": "string"
-                }
-            }
-        },
         "content.Destinations": {
             "type": "object",
             "properties": {
@@ -1267,46 +1102,6 @@ const docTemplate = `{
                 },
                 "name": {
                     "type": "string"
-                }
-            }
-        },
-        "content.GetAllStoriesRes": {
-            "type": "object",
-            "properties": {
-                "limit": {
-                    "type": "integer"
-                },
-                "offset": {
-                    "type": "integer"
-                },
-                "stories": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.Stories"
-                    }
-                },
-                "total": {
-                    "type": "integer"
-                }
-            }
-        },
-        "content.GetCommentsOfStoryRes": {
-            "type": "object",
-            "properties": {
-                "comments": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.Comments"
-                    }
-                },
-                "limit": {
-                    "type": "integer"
-                },
-                "offset": {
-                    "type": "integer"
-                },
-                "total": {
-                    "type": "integer"
                 }
             }
         },
@@ -1359,55 +1154,6 @@ const docTemplate = `{
                 }
             }
         },
-        "content.GetItinerariesByIdRes": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/content.Author"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "destination": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.Destination"
-                    }
-                },
-                "end_date": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "start_date": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.GetItinerariesRes": {
-            "type": "object",
-            "properties": {
-                "itineraries": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.ItinerariesRes"
-                    }
-                },
-                "limit": {
-                    "type": "integer"
-                },
-                "offset": {
-                    "type": "integer"
-                },
-                "total": {
-                    "type": "integer"
-                }
-            }
-        },
         "content.GetMessagesRes": {
             "type": "object",
             "properties": {
@@ -1425,44 +1171,6 @@ const docTemplate = `{
                 },
                 "total": {
                     "type": "integer"
-                }
-            }
-        },
-        "content.GetStoryRes": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/content.Author"
-                },
-                "comments_count": {
-                    "type": "integer"
-                },
-                "content": {
-                    "type": "string"
-                },
-                "created_at": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "likes_count": {
-                    "type": "integer"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "tags": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    }
-                },
-                "title": {
-                    "type": "string"
-                },
-                "updated_at": {
-                    "type": "string"
                 }
             }
         },
@@ -1508,72 +1216,6 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "total_stories": {
-                    "type": "string"
-                },
-                "user_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.ItinerariesReq": {
-            "type": "object",
-            "properties": {
-                "description": {
-                    "type": "string"
-                },
-                "destinations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/content.Destination"
-                    }
-                },
-                "end_date": {
-                    "type": "string"
-                },
-                "start_date": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "user_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.ItinerariesRes": {
-            "type": "object",
-            "properties": {
-                "created_at": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                },
-                "end_date": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string"
-                },
-                "start_date": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                },
-                "user_id": {
-                    "type": "string"
-                }
-            }
-        },
-        "content.LikeRes": {
-            "type": "object",
-            "properties": {
-                "liked_at": {
-                    "type": "string"
-                },
-                "story_id": {
                     "type": "string"
                 },
                 "user_id": {
@@ -1657,29 +1299,6 @@ const docTemplate = `{
                 }
             }
         },
-        "content.Stories": {
-            "type": "object",
-            "properties": {
-                "author": {
-                    "$ref": "#/definitions/content.Author"
-                },
-                "comments_count": {
-                    "type": "integer"
-                },
-                "likes_count": {
-                    "type": "integer"
-                },
-                "location": {
-                    "type": "string"
-                },
-                "story_id": {
-                    "type": "string"
-                },
-                "title": {
-                    "type": "string"
-                }
-            }
-        },
         "content.Tips": {
             "type": "object",
             "properties": {
@@ -1714,7 +1333,184 @@ const docTemplate = `{
                 }
             }
         },
-        "content.UpdateItinerariesReq": {
+        "itineraries.Activities": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.Author": {
+            "type": "object",
+            "properties": {
+                "full_name": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.CommentItinerariesReq": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "itinerary_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.CommentItinerariesRes": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "itinerary_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.Destination": {
+            "type": "object",
+            "properties": {
+                "activities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/itineraries.Activities"
+                    }
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.GetItinerariesByIdRes": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "$ref": "#/definitions/itineraries.Author"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "destination": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/itineraries.Destination"
+                    }
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.GetItinerariesRes": {
+            "type": "object",
+            "properties": {
+                "itineraries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/itineraries.ItinerariesRes"
+                    }
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "itineraries.ItinerariesReq": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "destinations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/itineraries.Destination"
+                    }
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.ItinerariesRes": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "end_date": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "start_date": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "itineraries.UpdateItinerariesReq": {
             "type": "object",
             "properties": {
                 "description": {
@@ -1728,7 +1524,239 @@ const docTemplate = `{
                 }
             }
         },
-        "content.UpdateStoriesReq": {
+        "story.Author": {
+            "type": "object",
+            "properties": {
+                "full_name": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.CommentStoryReq": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "story_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.CommentStoryRes": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "story_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.Comments": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "$ref": "#/definitions/story.Author"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.CreateStoriesRequest": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.CreateStoriesResponse": {
+            "type": "object",
+            "properties": {
+                "author_id": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.GetAllStoriesRes": {
+            "type": "object",
+            "properties": {
+                "limit": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                },
+                "stories": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/story.Stories"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "story.GetCommentsOfStoryRes": {
+            "type": "object",
+            "properties": {
+                "comments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/story.Comments"
+                    }
+                },
+                "limit": {
+                    "type": "integer"
+                },
+                "offset": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "story.GetStoryRes": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "$ref": "#/definitions/story.Author"
+                },
+                "comments_count": {
+                    "type": "integer"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "likes_count": {
+                    "type": "integer"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.LikeRes": {
+            "type": "object",
+            "properties": {
+                "liked_at": {
+                    "type": "string"
+                },
+                "story_id": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.Stories": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "$ref": "#/definitions/story.Author"
+                },
+                "comments_count": {
+                    "type": "integer"
+                },
+                "likes_count": {
+                    "type": "integer"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "story_id": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "story.UpdateStoriesReq": {
             "type": "object",
             "properties": {
                 "content": {
@@ -1742,7 +1770,7 @@ const docTemplate = `{
                 }
             }
         },
-        "content.UpdateStoriesRes": {
+        "story.UpdateStoriesRes": {
             "type": "object",
             "properties": {
                 "author_id": {
